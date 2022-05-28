@@ -1,6 +1,8 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import logging
 
+# 参考地址 https://www.jianshu.com/p/279473392f38 利用Python 搭建HttpServer
+
 
 class S(BaseHTTPRequestHandler):
     def do_HEAD(self):
