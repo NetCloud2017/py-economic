@@ -16,43 +16,46 @@ speaker = win32com.client.Dispatch('SAPI.SpVoice')
 browser = webdriver.Chrome()
 
 
-browser.get('https://www.jd.com/')
+browser.get('https://www.taobao.com/')
 
 time.sleep(5)
 
 
-browser.find_element(By.LINK_TEXT, '你好，请登录').click()
+browser.find_element(By.LINK_TEXT, '亲，请登录').click()  
 
 
-print(f"请扫码")
+print(f"请尽快扫码登陆")
 time.sleep(10)
 
+# browser.find_element(By.CLASS_NAME, 'icon-qrcode').click()
 
 
-browser.get("https://cart.jd.com/cart_index")
+browser.get("https://cart.taobao.com/cart.htm")
+# browser.get("https://buy.tmall.com/order/confirm_order.htm")
 
-time.sleep(5)
+
+time.sleep(7)
 
 while True: 
-    if browser.find_element(By.CLASS_NAME,'jdcheckbox'):
-        browser.find_element(By.CLASS_NAME, 'jdcheckbox').click()
+    if browser.find_element(By.CLASS_NAME,'J_SelectAll'):
+        browser.find_element(By.CLASS_NAME, 'J_SelectAll').click()
         break
 
 while True:
 
-    now = datetime.datetime.now().strftime('%Y-%m-$d %H:%M:%S.%f')
+    now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')
 
     print(now)
 
-    if now >= '2023-04-29 16:45:00':
-        while 1==1:
+    if now >= '2023-04-29 20:23:00.000001':
+        while True:
             try:
-                if browser.find_element(By.LINK_TEXT, '去结算'):
+                if browser.find_element(By.ID, 'J_SmallSubmit'):
                     print('here')
 
-                    browser.find_element(By.LINK_TEXT, '去结算').click()
+                    browser.find_element(By.ID, 'J_SmallSubmit').click()
                     print(f'老板， 你的茅台我帮你抢到了，快点去结算')
-                    speaker.Speak(f'老板， 你的茅台我帮你抢到了，快点去结算')
+                    speaker.Speak(f'老板， 商品我帮你抢到了，快点去结算')
                     break
             except:
                 pass
