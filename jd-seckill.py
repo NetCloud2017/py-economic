@@ -42,7 +42,7 @@ while True:
 
     print(now)
 
-    if now >= '2023-05-04 09:25:00':
+    if now >= '2023-05-04 09:50:00':
         while 1==1:
             try:
                 if browser.find_element(By.LINK_TEXT, '去结算'):
